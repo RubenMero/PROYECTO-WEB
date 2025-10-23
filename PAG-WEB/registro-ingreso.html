@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Ingreso - Sistema ULEAM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="logo-uleam.png" alt="Logo ULEAM" class="logo-img">
+            <div class="system-title">Sistema de Parqueadero ULEAM</div>
+        </div>
+        <nav class="nav-horizontal">
+            <a href="dashboard.html">Panel</a>
+            <a href="registro-ingreso.html" class="active">Ingreso</a>
+            <a href="registro-salida.html">Salida</a>
+            <a href="consulta-ingresos.html">Consulta</a>
+            <a href="vehiculos-registrados.html">Vehículos</a>
+            <a href="gestion-usuarios.html">Usuarios</a>
+            <a href="reportes.html">Reportes</a>
+        </nav>
+        <div class="user-profile">
+            <div class="user-info">
+                <div class="user-name">👤 Guardia 01</div>
+                <div class="user-role">Guardia de Seguridad</div>
+            </div>
+            <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1>Registro de Ingreso de Vehículo</h1>
+        
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Datos del Ingreso</div>
+            </div>
+            <form id="ingresoForm">
+                <div class="form-grid">
+                    <div class="form-group input-group">
+                        <label for="idConductor">ID/Cédula Conductor (10 dígitos):</label>
+                        <input type="number" id="idConductor" name="idConductor" placeholder="Ej: 1301234567" required minlength="10" maxlength="10">
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group input-group">
+                        <label for="tipoVehiculo">Tipo de Vehículo:</label>
+                        <select id="tipoVehiculo" name="tipoVehiculo" required>
+                            <option value="">-- Seleccione un tipo --</option>
+                            <option value="Auto">Auto</option>
+                            <option value="Camioneta">Camioneta</option>
+                            <option value="Moto">Moto</option>
+                            <option value="Buseta">Buseta</option>
+                        </select>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group input-group">
+                        <label for="placa">Placa del Vehículo:</label>
+                        <input type="text" id="placa" name="placa" placeholder="Ej: ABC-1234" required maxlength="8">
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones (Opcional):</label>
+                        <input type="text" id="observaciones" name="observaciones" placeholder="Detalles extra del ingreso">
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px; text-align: right;">
+                    <button type="submit" class="btn btn-success">Registrar Ingreso</button>
+                    <button type="reset" class="btn btn-secondary">Limpiar Campos</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    
+    <div id="notification"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

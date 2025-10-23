@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Principal - Sistema ULEAM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="logo-uleam.png" alt="Logo ULEAM" class="logo-img">
+            <div class="system-title">Sistema de Parqueadero ULEAM</div>
+        </div>
+        <nav class="nav-horizontal">
+            <a href="dashboard.html" class="active">Panel</a>
+            <a href="registro-ingreso.html">Ingreso</a>
+            <a href="registro-salida.html">Salida</a>
+            <a href="consulta-ingresos.html">Consulta</a>
+            <a href="vehiculos-registrados.html">Vehículos</a>
+            <a href="gestion-usuarios.html">Usuarios</a>
+            <a href="reportes.html">Reportes</a>
+        </nav>
+        <div class="user-profile">
+            <div class="user-info">
+                <div class="user-name">👤 Usuario</div>
+                <div class="user-role">Administrador</div>
+            </div>
+            <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1>Panel Principal</h1>
+
+        <div class="stat-cards-grid">
+            <div class="stat-card card-blue">
+                <div class="stat-value">15</div>
+                <div class="stat-label">Vehículos Dentro (Hoy)</div>
+            </div>
+            <div class="stat-card card-green">
+                <div class="stat-value">250</div>
+                <div class="stat-label">Ingresos Totales (Mes)</div>
+            </div>
+            <div class="stat-card card-orange">
+                <div class="stat-value">4</div>
+                <div class="stat-label">Plazas Disponibles</div>
+            </div>
+            <div class="stat-card card-purple">
+                <div class="stat-value">Admin ULEAM</div>
+                <div class="stat-label">Usuario Activo</div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="card-header">
+                <div class="card-title">Distribución de Ingresos (Últimos 7 Días)</div>
+            </div>
+            <div class="chart-bar-container">
+                <div class="chart-bar-wrapper">
+                    <div class="chart-bar" style="background: var(--card-blue);" data-height="50%"></div>
+                    <div class="chart-value-label">50</div>
+                    <div class="chart-label">Lun</div>
+                </div>
+                <div class="chart-bar-wrapper">
+                    <div class="chart-bar" style="background: var(--card-blue);" data-height="80%"></div>
+                    <div class="chart-value-label">80</div>
+                    <div class="chart-label">Mar</div>
+                </div>
+                <div class="chart-bar-wrapper">
+                    <div class="chart-bar" style="background: var(--card-blue);" data-height="65%"></div>
+                    <div class="chart-value-label">65</div>
+                    <div class="chart-label">Mié</div>
+                </div>
+                <div class="chart-bar-wrapper">
+                    <div class="chart-bar" style="background: var(--card-blue);" data-height="95%"></div>
+                    <div class="chart-value-label">95</div>
+                    <div class="chart-label">Jue</div>
+                </div>
+                <div class="chart-bar-wrapper">
+                    <div class="chart-bar" style="background: var(--card-blue);" data-height="40%"></div>
+                    <div class="chart-value-label">40</div>
+                    <div class="chart-label">Vie</div>
+                </div>
+                <div class="chart-bar-wrapper">
+                    <div class="chart-bar" style="background: var(--card-blue);" data-height="15%"></div>
+                    <div class="chart-value-label">15</div>
+                    <div class="chart-label">Sáb</div>
+                </div>
+                <div class="chart-bar-wrapper">
+                    <div class="chart-bar" style="background: var(--card-blue);" data-height="5%"></div>
+                    <div class="chart-value-label">5</div>
+                    <div class="chart-label">Dom</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Últimos Ingresos Registrados</div>
+            </div>
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha/Hora</th>
+                            <th>Placa</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>22/10/2025 10:30</td>
+                            <td>ABC-1234</td>
+                            <td>Auto</td>
+                            <td><span class="badge badge-success">Dentro</span></td>
+                        </tr>
+                        <tr>
+                            <td>22/10/2025 10:45</td>
+                            <td>XYZ-900</td>
+                            <td>Camioneta</td>
+                            <td><span class="badge badge-success">Dentro</span></td>
+                        </tr>
+                        <tr>
+                            <td>22/10/2025 10:50</td>
+                            <td>JKL-012</td>
+                            <td>Moto</td>
+                            <td><span class="badge badge-danger">Fuera</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <div id="notification"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

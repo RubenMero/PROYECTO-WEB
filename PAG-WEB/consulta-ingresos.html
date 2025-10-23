@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Ingresos - Sistema ULEAM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="logo-uleam.png" alt="Logo ULEAM" class="logo-img">
+            <div class="system-title">Sistema de Parqueadero ULEAM</div>
+        </div>
+        <nav class="nav-horizontal">
+            <a href="dashboard.html">Panel</a>
+            <a href="registro-ingreso.html">Ingreso</a>
+            <a href="registro-salida.html">Salida</a>
+            <a href="consulta-ingresos.html" class="active">Consulta</a>
+            <a href="vehiculos-registrados.html">Vehículos</a>
+            <a href="gestion-usuarios.html">Usuarios</a>
+            <a href="reportes.html">Reportes</a>
+        </nav>
+        <div class="user-profile">
+            <div class="user-info">
+                <div class="user-name">👤 Admin ULEAM</div>
+                <div class="user-role">Administrador</div>
+            </div>
+            <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1>Consulta de Ingresos/Salidas</h1>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Filtros de Búsqueda</div>
+            </div>
+            <div class="filter-card">
+                <div class="form-group">
+                    <label for="searchID">ID/Cédula:</label>
+                    <input type="text" id="searchID" placeholder="Buscar por ID">
+                </div>
+                <div class="form-group">
+                    <label for="searchPlaca">Placa:</label>
+                    <input type="text" id="searchPlaca" placeholder="Buscar por Placa">
+                </div>
+                <div class="form-group">
+                    <label for="searchTipo">Tipo Vehículo:</label>
+                    <select id="searchTipo">
+                        <option value="todos">Todos</option>
+                        <option value="Auto">Auto</option>
+                        <option value="Camioneta">Camioneta</option>
+                        <option value="Moto">Moto</option>
+                        <option value="Buseta">Buseta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="searchFecha">Fecha:</label>
+                    <input type="date" id="searchFecha">
+                </div>
+                <button class="btn btn-primary" id="searchBtn">Buscar</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Resultados de Ingresos</div>
+            </div>
+            
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID Conductor</th>
+                            <th>Nombre Conductor</th>
+                            <th>Placa</th>
+                            <th>Tipo</th>
+                            <th>Hora Ingreso</th>
+                            <th>Hora Salida</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ingresosTableBody">
+                        </tbody>
+                </table>
+            </div>
+            
+            <div class="pagination-controls">
+                <div class="page-info" id="pageInfo">Mostrando 0 registro(s) en total</div>
+                <div>
+                    <button class="btn btn-secondary" onclick="cambiarPagina('prev')" disabled>&#9664; Anterior</button>
+                    <button class="btn btn-secondary" onclick="cambiarPagina('next')" disabled>Siguiente &#9654;</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="notification"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
